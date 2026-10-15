@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Dropdown Menu</title>
+    <style>
+        /* 1. Cố định phông chữ cho trang và thiết lập phân vùng trình đơn */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #menu {
+            height: 40px;
+            background-color: #333;
+            border: 1px solid #222;
+            border-radius: 4px;
+        }
+
+        #menu ul {
+            margin: 0;
+            padding: 0;
+            list-style: none; /* Bỏ dấu chấm tròn của danh sách */
+        }
+
+        /* 2. Bộ chọn riêng cho các phần tử trong danh sách (menu cha) */
+        #menu li {
+            float: left; /* Đẩy các thẻ li nằm ngang hàng nhau */
+            position: relative; /* Làm gốc tọa độ cho menu con thả xuống */
+        }
+
+        /* 3. Bộ chọn dành cho các liên kết trong trình đơn */
+        #menu li a {
+            width: 150px;           /* Cố định độ rộng */
+            height: 40px;           /* Cố định chiều cao */
+            display: block;         /* Hiển thị dạng khối để click được toàn bộ vùng */
+            line-height: 40px;      /* Căn giữa chữ theo chiều dọc */
+            text-align: center;     /* Căn giữa chữ theo chiều ngang */
+            text-decoration: none;  /* Bỏ gạch chân liên kết */
+            color: white;           /* Màu chữ mặc định */
+        }
+
+        /* 4. Bộ chọn khi đưa con trỏ qua liên kết (chuyển nền sang đỏ) */
+        #menu li a:hover {
+            background-color: red;
+        }
+
+        /* 5. Bộ chọn cho danh sách con (định vị và ẩn đi) */
+        #menu ul ul {
+            position: absolute;     /* Định vị tuyệt đối so với thẻ li cha */
+            top: 40px;              /* Đẩy menu con xuống dưới mép menu cha (bằng chiều cao menu cha) */
+            left: 0;                /* Căn sát mép trái của mục cha */
+            visibility: hidden;     /* Ẩn trình đơn con đi */
+            background-color: #444; /* Màu nền cho trình đơn con */
+        }
+
+        /* Tùy chỉnh thêm để các mục của menu con nằm dọc thay vì ngang */
+        #menu ul ul li {
+            float: none; 
+            border-top: 1px solid #555;
+        }
+
+        /* 6. Hiển thị danh sách con khi đưa con trỏ qua mục cha tương ứng */
+        #menu li:hover > ul {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cấu trúc HTML của Menu lồng nhau 2 cấp -->
+    <div id="menu">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Tin tức</a>
+                <!-- Danh sách con cấp 2 -->
+                <ul>
+                    <li><a href="#">Công nghệ</a></li>
+                    <li><a href="#">Giáo dục</a></li>
+                    <li><a href="#">Đời sống</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Dịch vụ</a>
+                <!-- Danh sách con cấp 2 -->
+                <ul>
+                    <li><a href="#">Thiết kế Web</a></li>
+                    <li><a href="#">Lưu trữ Cloud</a></li>
+                    <li><a href="#">Bảo mật</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>
